@@ -1,0 +1,9 @@
+<section class="phero scallop">
+  <div class="phero__in">
+    {% if include.kicker %}<p class="phero__kicker">↖ {{ include.kicker }}</p>{% endif %}
+    <h1 class="phero__title">{{ include.title }}</h1>
+    {% if include.text %}<p class="phero__text">{{ include.text }}</p>{% endif %}
+    {% if include.cta_url %}<p><a class="btn btn--yellow" href="{{ include.cta_url }}">{{ include.cta_label }}</a></p>{% endif %}
+    {% if include.credit %}<p class="phero__credit">{{ include.credit }}</p>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="site-header__top">
+    <button class="hbtn" type="button" data-menu-open aria-expanded="false" aria-controls="menu"><span class="burger" aria-hidden="true"></span>Menu</button>
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <button class="hbtn hbtn--right" type="button" data-search-open>Cerca
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="site-nav" aria-label="Principale">
+    {% for l in site.data.navigation.main %}
+      {% assign cur = false %}
+      {% if page.url == l.url %}{% assign cur = true %}{% elsif l.url != "/" and page.url contains l.url %}{% assign cur = true %}{% endif %}
+      <a href="{{ l.url | relative_url }}"{% if cur %} aria-current="page"{% endif %}>{{ l.label }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu__close" type="button" data-menu-close aria-label="Chiudi menu">✕</button>
+  <nav aria-label="Menu completo">
+    {% for l in site.data.navigation.main %}
+      <a href="{{ l.url | relative_url }}" style="--i:{{ forloop.index0 }}">{{ l.label }}</a>
+    {% endfor %}
+  </nav>
+</div>
+
+<dialog class="search" id="search" data-src="{{ '/search.json' | relative_url }}">
+  <form method="dialog" class="search__bar">
+    <input type="search" id="search-q" placeholder="Cerca articoli, news, lavori…" autocomplete="off" aria-label="Cerca">
+    <button class="btn btn--yellow" value="close">Chiudi</button>
+  </form>
+  <ul class="search__results" id="search-results"></ul>
+</dialog>

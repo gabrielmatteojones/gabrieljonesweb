@@ -1,0 +1,15 @@
+hero:
+  kicker: Progetto risorse
+  title: Oggi giochiamo!
+  text: 288 schede gioco per educatori, animatori e catechisti: regole chiare, materiali, tempi e consigli pratici, da usare in oratorio, a scuola e al Grest.
+  cta: { label: Vai al sito Playbook, url: "https://example.com" }
+  credit: Gabriel Jones | 2026
+stats:
+  - { value: "288", short: schede gioco, label: schede gioco }
+  - { value: "7", short: libri tematici, label: "libri tematici, dal chiuso all’aperto, dal Grest agli animatori" }
+  - { value: "4–18", short: anni, label: "anni, dai più piccoli agli animatori" }
+steps_title: Come funziona
+steps:
+  - { title: Accedi, text: "L’area riservata è per gli educatori autorizzati: accedi con la tua email." }
+  - { title: Scegli il gioco, text: "Cerca per nome, libro, categoria o codice e apri la scheda." }
+  - { title: Tieni il registro, text: "Segna le attività sul calendario e annota com’è andata." }

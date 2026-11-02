@@ -1,0 +1,178 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true   # per provare in locale: npx decap-server
+
+locale: it
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Articolo
+    folder: _posts
+    create: true
+    extension: md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{categoria}})"
+    fields:
+      - { label: Titolo, name: title, widget: string }
+      - { label: Data, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: Categoria, name: categoria, widget: string, required: false }
+      - { label: Riassunto, name: excerpt, widget: text, required: false }
+      - { label: Immagine di copertina, name: image, widget: image, required: false }
+      - { label: Testo, name: body, widget: markdown }
+
+  - name: news
+    label: News
+    label_singular: Notizia
+    folder: _news
+    create: true
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: Titolo, name: title, widget: string }
+      - { label: Data, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: Riassunto, name: excerpt, widget: text, required: false }
+      - { label: Immagine, name: image, widget: image, required: false }
+      - { label: Testo, name: body, widget: markdown }
+
+  - name: portfolio
+    label: Portfolio
+    label_singular: Lavoro
+    folder: _portfolio
+    create: true
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: Titolo, name: title, widget: string }
+      - { label: Data, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: Categoria, name: categoria, widget: select, options: ["Sviluppo web", "Grafica", "Educazione"], required: false }
+      - { label: Colore scheda, name: color, widget: select, options: [pink, green, blue, yellow, maroon, red], default: green }
+      - { label: Emoji, name: icon, widget: string, default: "🎨" }
+      - { label: Immagine, name: image, widget: image, required: false }
+      - { label: Riassunto, name: excerpt, widget: text, required: false }
+      - { label: Descrizione, name: body, widget: markdown }
+
+  - name: impostazioni
+    label: Pagine e impostazioni
+    files:
+      - name: home
+        label: Home
+        file: _data/home.yml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Introduzione ("mi chiamo"), name: kicker, widget: string }
+              - { label: Nome, name: name, widget: string }
+              - { label: Frase, name: tagline, widget: string }
+              - label: Bottone primario
+                name: primary
+                widget: object
+                fields:
+                  - { label: Testo, name: label, widget: string }
+                  - { label: Link, name: url, widget: string }
+              - label: Bottone secondario
+                name: secondary
+                widget: object
+                fields:
+                  - { label: Testo, name: label, widget: string }
+                  - { label: Link, name: url, widget: string }
+          - { label: Testo nell'ovale, name: intro, widget: text }
+          - label: Tre aree colorate
+            name: areas
+            widget: list
+            fields:
+              - { label: Titolo, name: title, widget: string }
+              - { label: Colore, name: color, widget: select, options: [pink, green, blue, yellow, maroon, red] }
+              - { label: Link, name: url, widget: string }
+          - label: Promo Playbook
+            name: promo
+            widget: object
+            fields:
+              - { label: Testo del blocco rosso, name: block, widget: string }
+              - { label: Titolo, name: title, widget: string }
+              - { label: Testo, name: text, widget: text }
+              - label: Bottone
+                name: cta
+                widget: object
+                fields:
+                  - { label: Testo, name: label, widget: string }
+                  - { label: Link, name: url, widget: string }
+          - { label: Titolo carosello, name: featured_title, widget: string }
+          - label: Carosello "In evidenza"
+            name: featured
+            widget: list
+            fields:
+              - { label: Emoji, name: icon, widget: string }
+              - { label: Titolo, name: title, widget: string }
+              - { label: Testo del link, name: link, widget: string }
+              - { label: Link, name: url, widget: string }
+              - { label: Colore, name: color, widget: select, options: [pink, green, blue, yellow, maroon, red] }
+          - { label: Frase grande, name: statement, widget: string }
+
+      - name: playbook
+        label: Playbook
+        file: _data/playbook.yml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Sopratitolo, name: kicker, widget: string }
+              - { label: Titolo, name: title, widget: string }
+              - { label: Testo, name: text, widget: text }
+              - label: Bottone
+                name: cta
+                widget: object
+                fields:
+                  - { label: Testo, name: label, widget: string }
+                  - { label: Link, name: url, widget: string }
+              - { label: Firma, name: credit, widget: string }
+          - label: Numeri
+            name: stats
+            widget: list
+            fields:
+              - { label: Valore, name: value, widget: string }
+              - { label: Etichetta breve (home), name: short, widget: string }
+              - { label: Etichetta lunga (Playbook), name: label, widget: string }
+          - { label: Titolo "Come funziona", name: steps_title, widget: string }
+          - label: Passaggi
+            name: steps
+            widget: list
+            fields:
+              - { label: Titolo, name: title, widget: string }
+              - { label: Testo, name: text, widget: text }
+
+      - name: documenti
+        label: Documenti
+        file: _data/documenti.yml
+        fields:
+          - label: Documenti
+            name: items
+            widget: list
+            fields:
+              - { label: Titolo, name: title, widget: string }
+              - { label: Descrizione, name: text, widget: string }
+              - { label: File, name: file, widget: file }
+
+      - name: navigazione
+        label: Menu e footer
+        file: _data/navigation.yml
+        fields:
+          - label: Menu principale
+            name: main
+            widget: list
+            fields: [ { label: Voce, name: label, widget: string }, { label: Link, name: url, widget: string } ]
+          - label: Footer · Pagine
+            name: footer_pages
+            widget: list
+            fields: [ { label: Voce, name: label, widget: string }, { label: Link, name: url, widget: string } ]
+          - label: Footer · Legale
+            name: footer_legal
+            widget: list
+            fields: [ { label: Voce, name: label, widget: string }, { label: Link, name: url, widget: string } ]

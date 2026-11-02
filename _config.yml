@@ -1,0 +1,39 @@
+title: Gabriel Jones
+description: Costruisco siti, disegno idee, insegno a giocare.
+lang: it
+url: ""        # es. https://gabrieljones.it (serve per sitemap e feed)
+baseurl: ""
+timezone: Europe/Rome
+markdown: kramdown
+permalink: /blog/:title/
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Testo del footer (modificabile)
+tagline: Creatore di Playbook.
+vat: "[Partita IVA / Codice Fiscale]"
+
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+  portfolio:
+    output: true
+    permalink: /portfolio/:name/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: entry }
+  - scope: { path: "", type: news }
+    values: { layout: entry }
+  - scope: { path: "", type: portfolio }
+    values: { layout: entry }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - netlify.toml
+  - vendor
+  - node_modules

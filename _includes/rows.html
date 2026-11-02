@@ -1,0 +1,13 @@
+<ul class="rows wrap">
+{% for item in include.items %}
+  <li data-reveal>
+    <a class="row{% if include.accent and forloop.first %} row--accent{% endif %}" href="{{ item.url | relative_url }}">
+      <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d/%m/%Y" }}</time>
+      <span class="row__title">{{ item.title }}{% if item.categoria %} <small>· {{ item.categoria }}</small>{% endif %}</span>
+      <span class="row__arrow" aria-hidden="true">→</span>
+    </a>
+  </li>
+{% else %}
+  <li class="rows__empty">Ancora niente qui. Torna presto.</li>
+{% endfor %}
+</ul>

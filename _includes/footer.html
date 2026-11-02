@@ -1,0 +1,22 @@
+<div class="checker" aria-hidden="true"></div>
+<footer class="footer">
+  <div class="footer__grid wrap">
+    <div>
+      <p class="footer__brand">{{ site.title }}</p>
+      <p class="footer__small">{{ site.tagline }}<br>{{ site.vat }}</p>
+    </div>
+    <div>
+      <h2>Pagine</h2>
+      {% for l in site.data.navigation.footer_pages %}<a href="{{ l.url | relative_url }}">{{ l.label }}</a>{% endfor %}
+    </div>
+    <div>
+      <h2>Legale</h2>
+      {% for l in site.data.navigation.footer_legal %}<a href="{{ l.url | relative_url }}">{{ l.label }}</a>{% endfor %}
+    </div>
+    <div>
+      <h2>Account</h2>
+      <a href="{{ '/admin/' | relative_url }}">Accedi</a>
+    </div>
+  </div>
+  <p class="footer__copy wrap">© {{ site.time | date: "%Y" }} {{ site.title }} · Tutti i diritti riservati</p>
+</footer>

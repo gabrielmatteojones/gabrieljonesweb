@@ -1,0 +1,14 @@
+---
+layout: default
+title: Documenti
+---
+{% include page-hero.html kicker="Da scaricare" title="Documenti" text="Materiali e file pubblici." %}
+<section class="wrap grid grid--docs">
+  {% for d in site.data.documenti.items %}
+  <a class="tile c-pink" href="{{ d.file | relative_url }}" download data-reveal>
+    <span class="tile__icon" aria-hidden="true">📄</span>
+    <strong>{{ d.title }}</strong>
+    <small>{{ d.text }}</small>
+  </a>
+  {% endfor %}
+</section>

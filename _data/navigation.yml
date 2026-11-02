@@ -1,0 +1,18 @@
+main:
+  - { label: Home, url: / }
+  - { label: Playbook, url: /playbook/ }
+  - { label: Portfolio, url: /portfolio/ }
+  - { label: Blog, url: /blog/ }
+  - { label: News, url: /news/ }
+  - { label: Documenti, url: /documenti/ }
+  - { label: Contatti, url: /contatti/ }
+footer_pages:
+  - { label: Portfolio, url: /portfolio/ }
+  - { label: Blog, url: /blog/ }
+  - { label: News, url: /news/ }
+  - { label: Playbook, url: /playbook/ }
+footer_legal:
+  - { label: Privacy policy, url: /privacy/ }
+  - { label: Cookie policy, url: /cookie/ }
+  - { label: Termini d’uso, url: /termini/ }
+  - { label: Note legali, url: /note-legali/ }

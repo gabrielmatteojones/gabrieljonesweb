@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{% assign credit = page.date | date: "%d/%m/%Y" %}
+{% assign kicker = page.categoria | default: page.collection | default: "blog" %}
+{% include page-hero.html kicker=kicker title=page.title text=page.excerpt credit=credit %}
+<article class="prose wrap wrap--narrow">
+  {% if page.image %}<img class="prose__cover" src="{{ page.image | relative_url }}" alt="">{% endif %}
+  {{ content }}
+  <p class="prose__back"><a class="btn btn--yellow" href="javascript:history.back()">Indietro</a></p>
+</article>

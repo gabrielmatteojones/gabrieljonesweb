@@ -1,0 +1,15 @@
+---
+layout: default
+title: Contatti
+---
+{% include page-hero.html kicker="Scrivimi" title="Contatti" text="Un’idea, un progetto o una domanda sui giochi? Scrivi due righe." %}
+<section class="wrap wrap--narrow">
+  <form class="form" name="contatti" method="POST" action="{{ '/grazie/' | relative_url }}" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contatti">
+    <p hidden><label>Non compilare: <input name="bot-field"></label></p>
+    <label>Nome <input name="nome" required autocomplete="name"></label>
+    <label>Email <input type="email" name="email" required autocomplete="email"></label>
+    <label>Messaggio <textarea name="messaggio" rows="6" required></textarea></label>
+    <button class="btn" type="submit">Invia il messaggio</button>
+  </form>
+</section>

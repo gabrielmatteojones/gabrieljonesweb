@@ -1,0 +1,13 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  # Se il build fallisce per la versione di Ruby, cambiala o usa un file .ruby-version
+  RUBY_VERSION = "3.2.2"
+  JEKYLL_ENV = "production"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301

@@ -1,0 +1,18 @@
+---
+layout: default
+title: Portfolio
+---
+{% include page-hero.html kicker="Lavori" title="Portfolio" text="Siti, grafica e progetti di educazione." %}
+<section class="wrap grid">
+  {% assign items = site.portfolio | sort: "date" | reverse %}
+  {% for p in items %}
+  <a class="tile c-{{ p.color | default: 'green' }}" href="{{ p.url | relative_url }}" data-reveal>
+    {% if p.image %}<img src="{{ p.image | relative_url }}" alt="" loading="lazy">{% endif %}
+    <span class="tile__icon" aria-hidden="true">{{ p.icon | default: "🎨" }}</span>
+    <strong>{{ p.title }}</strong>
+    <small>{{ p.categoria }}</small>
+  </a>
+  {% else %}
+  <p class="rows__empty">Ancora nessun lavoro pubblicato.</p>
+  {% endfor %}
+</section>

@@ -1,0 +1,78 @@
+---
+layout: default
+title: Home
+---
+{% assign h = site.data.home %}
+{% assign pb = site.data.playbook %}
+
+<section class="hero">
+  <p class="hero__kicker">{{ h.hero.kicker }}</p>
+  <h1 class="hero__name"><span>{{ h.hero.name }}</span></h1>
+  <p class="hero__tag">{{ h.hero.tagline }}</p>
+  <p class="hero__cta">
+    <a class="btn" href="{{ h.hero.primary.url | relative_url }}">{{ h.hero.primary.label }}</a>
+    <a class="btn btn--yellow" href="{{ h.hero.secondary.url | relative_url }}">{{ h.hero.secondary.label }}</a>
+  </p>
+</section>
+
+<section class="band">
+  <div class="checker" aria-hidden="true"></div>
+  <div class="waves" aria-hidden="true">
+    <svg width="3000" height="340" viewBox="0 0 3000 340">
+      <path d="M0 192 Q150 42 300 192 T600 192 T900 192 T1200 192 T1500 192 T1800 192 T2100 192 T2400 192 T2700 192 T3000 192" fill="none" stroke="#6f9bf3" stroke-width="34"/>
+      <path d="M0 170 Q150 20 300 170 T600 170 T900 170 T1200 170 T1500 170 T1800 170 T2100 170 T2400 170 T2700 170 T3000 170" fill="none" stroke="#f2452b" stroke-width="34"/>
+    </svg>
+  </div>
+  <p class="oval" data-reveal>{{ h.intro }}</p>
+</section>
+
+<section class="areas">
+  {% for a in h.areas %}
+  <a class="area c-{{ a.color }}" href="{{ a.url | relative_url }}"><span>{{ a.title }}</span></a>
+  {% endfor %}
+</section>
+
+<section class="promo wrap">
+  <a class="promo__block" href="{{ h.promo.cta.url | relative_url }}" data-reveal><span>{{ h.promo.block }}</span></a>
+  <div data-reveal>
+    <h2>{{ h.promo.title }}</h2>
+    <p>{{ h.promo.text }}</p>
+    <dl class="stats">
+      {% for s in pb.stats %}
+      <div><dt data-count>{{ s.value }}</dt><dd>{{ s.short }}</dd></div>
+      {% endfor %}
+    </dl>
+    <a class="btn" href="{{ h.promo.cta.url | relative_url }}">{{ h.promo.cta.label }}</a>
+  </div>
+</section>
+
+<section class="mint">
+  <div class="wrap carousel" data-carousel>
+    <div class="carousel__head">
+      <h2>{{ h.featured_title }}</h2>
+      <div class="carousel__nav">
+        <button class="round" type="button" data-prev aria-label="Precedente">←</button>
+        <button class="round" type="button" data-next aria-label="Successivo">→</button>
+      </div>
+    </div>
+    <div class="carousel__track" tabindex="0">
+      {% for f in h.featured %}
+      <a class="card c-{{ f.color }}" href="{{ f.url | relative_url }}">
+        <span class="card__icon" aria-hidden="true">{{ f.icon }}</span>
+        <span><strong class="card__title">{{ f.title }}</strong><em class="card__link">{{ f.link }}</em></span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="carousel__bar" aria-hidden="true"><i></i></div>
+  </div>
+  <p class="statement" data-words>{{ h.statement }}</p>
+</section>
+
+<section class="latest wrap">
+  <div class="latest__head">
+    <h2>Ultimi dal blog</h2>
+    <a class="btn" href="{{ '/blog/' | relative_url }}">Tutti gli articoli</a>
+  </div>
+  {% assign latest = site.posts | slice: 0, 3 %}
+  {% include rows.html items=latest %}
+</section>

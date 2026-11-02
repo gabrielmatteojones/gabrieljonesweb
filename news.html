@@ -1,0 +1,8 @@
+---
+layout: default
+title: News
+---
+{% include page-hero.html kicker="Aggiornamenti" title="News" text="Novità dal lavoro e dalla ricerca." credit="Gabriel Jones | 2026" %}
+{% assign items = site.news | sort: "date" | reverse %}
+<section class="listing">{% include rows.html items=items accent=true %}</section>
+<div class="checker" aria-hidden="true"></div>
