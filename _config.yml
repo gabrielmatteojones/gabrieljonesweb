@@ -1,8 +1,8 @@
 title: Gabriel Jones
 description: Costruisco siti, disegno idee, insegno a giocare.
 lang: it
-url: ""        # es. https://gabrieljones.it (serve per sitemap e feed)
-baseurl: ""
+url: "https://gabrielmatteojones.github.io"        # es. https://gabrieljones.it (serve per sitemap e feed)
+baseurl: "/gabrieljonesweb/"
 timezone: Europe/Rome
 markdown: kramdown
 permalink: /blog/:title/
