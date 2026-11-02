@@ -1,8 +1,8 @@
 hero:
   kicker: Progetto risorse
   title: Oggi giochiamo!
-  text: 288 schede gioco per educatori, animatori e catechisti: regole chiare, materiali, tempi e consigli pratici, da usare in oratorio, a scuola e al Grest.
-  cta: { label: Vai al sito Playbook, url: "https://example.com" }
+  text: Oltre 288 schede per animatori, educatori etc
+  cta: { label: Vai al sito Playbook, url: "https://progettoplaybook.it" }
   credit: Gabriel Jones | 2026
 stats:
   - { value: "288", short: schede gioco, label: schede gioco }
